@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\ContactController;
 
 // トップページ
 Route::get('/', function () {
-    return view('index');
+    return redirect()->route('login');
 });
 
 // お問い合わせフォームの表示
@@ -34,3 +35,4 @@ Route::get('/contact/thanks', function () {
 })->name('contact.thanks');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+

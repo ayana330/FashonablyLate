@@ -1,151 +1,69 @@
-/* 基本的なリセット */
-* {
+.attendance__alert--success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.attendance__alert--danger {
+    padding: 10px 0;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.attendance__alert--danger ul {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-}
-
-.header__inner {
-    display: flex;
-    justify-content: center;
-}
-
-.header__logo {
-    font-size: 24px;
-    text-decoration: none;
-    color: white;
-}
-
-main {
-    max-width: 800px;
+.attendance__panel {
     margin: 0 auto;
-    padding: 40px 20px;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    width: 70%;
 }
 
-.contact-form__heading h2 {
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form__group {
-    margin-bottom: 20px;
-}
-
-.form__group-title {
-    font-size: 16px;
-    margin-bottom: 8px;
-}
-
-.form__label--item {
-    font-weight: bold;
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.form__group-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.form__input--text input,
-.form__input--text textarea,
-.form__input--text select {
+.attendance__button {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
+    text-align: center;
 }
 
-.form__input--text textarea {
-    resize: vertical;
-}
-
-.form__radio {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.form__radio input {
-    margin-right: 5px;
-}
-
-.form__error span {
-    color: red;
-    font-size: 12px;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+.attendance__button-submit {
+    padding: 5px;
+    width: 30%;
+    height: 50px;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.attendance__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
 }
 
-/* 確認画面ボタン */
-button[type="button"] {
-    background-color: #28a745;
+.attendance-table {
+    margin: 30px auto;
+    width: 70%;
+    text-align: center;
 }
 
-button[type="button"]:hover {
-    background-color: #218838;
+.attendance-table__inner {
+    width: 100%;
 }
 
-button[type="submit"] {
-    background-color: #17a2b8;
+.attendance-table__row {
+    border-bottom: 1px solid #ddd;
 }
 
-button[type="submit"]:hover {
-    background-color: #138496;
+.attendance-table__header {
+    padding: 12px;
+    width: 20%;
+    font-weight: bold;
 }
 
-/* フォーム全体の余白 */
-.form__group-content {
-    margin-bottom: 20px;
-}
-
-textarea {
-    height: 150px;
-}
-
-.select {
-    height: 38px;
-    padding: 0 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-}
-
-/* レスポンシブ対応 */
-@media screen and (max-width: 600px) {
-    main {
-        padding: 20px;
-    }
-
-    .form__group-content {
-        flex-direction: column;
-    }
+.attendance-table__item {
+    padding: 12px;
+    width: 20%;
 }
