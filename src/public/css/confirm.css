@@ -1,0 +1,101 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header__logo {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.confirm__content {
+    background-color: white;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirm__heading h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.confirm-table th {
+    width: 30%;
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.confirm-table td {
+    width: 70%;
+}
+
+.form__buttons {
+    text-align: center;
+}
+
+.form__buttons button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form__buttons button:hover {
+    background-color: #45a049;
+}
+
+.form__buttons button[type="submit"]:first-child {
+    background-color: #f44336;
+}
+
+.form__buttons button[type="submit"]:first-child:hover {
+    background-color: #e53935;
+}
+
+/* Back button style */
+.form__buttons button[type="submit"]:first-child {
+    background-color: #ff9800;
+}
+
+.form__buttons button[type="submit"]:first-child:hover {
+    background-color: #fb8c00;
+}

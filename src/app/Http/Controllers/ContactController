@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ContactController extends Controller
+{
+    // フォーム表示
+    public function showForm()
+    {
+        return view('contact.form');
+    }
+
+    // 確認画面表示
+    public function confirm(Request $request)
+    {
+        // 入力された内容をセッションに保存
+        $request->session()->put('contact_inputs', $request->all());
+
+        // 確認画面に遷移
+        return view('contact.confirm', [
+            'inputs' => $request->all(),
+        ]);
+    }
+
+    // 送信処理
+    public function submit(Request $request)
+    {
+        // セッションからデータを取得
+        $data = $request->session()->get('contact_inputs');
+
+        // ここでデータを保存したり、メールを送信する処理を追加
+        // 例: DB保存やメール送信
+
+        // セッションを削除
+        $request->session()->forget('contact_inputs');
+
+        // 完了画面へリダイレクト
+        return view('contact.thanks');
+    }
+}
