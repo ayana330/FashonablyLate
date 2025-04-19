@@ -7,14 +7,26 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     // フォーム表示
-    public function showForm()
+    public function index()
     {
-        return view('contact.form');
+        return view('index');
     }
 
     // 確認画面表示
     public function confirm(Request $request)
     {
+        // バリデーション
+        $validated = $request->validate([
+        'last_name' => 'required|string|max:255',
+        'first_name' => 'required|string|max:255',
+        'email' => 'required|email',
+        'tel1' => 'required|digits_between:1,5',
+        'tel2' => 'required|digits_between:1,5',
+        'tel3' => 'required|digits_between:1,5',
+        'address' => 'required|string|max:255',
+        'inquiry_content' => 'required|string',
+    ]);
+        
         // 入力された内容をセッションに保存
         $request->session()->put('contact_inputs', $request->all());
 
@@ -39,4 +51,10 @@ class ContactController extends Controller
         // 完了画面へリダイレクト
         return view('contact.thanks');
     }
+
+    public function store(Request $request)
+{
+    // バリデーションなど必要であればここに追加
+    return redirect()->route('contact.confirm')->withInput();
+}
 }

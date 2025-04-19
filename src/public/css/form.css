@@ -1,0 +1,48 @@
+/* フォームのスタイリング */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__group label {
+    font-weight: bold;
+    display: block;
+}
+
+.form__group input,
+.form__group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form__group button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form__group button:hover {
+    background-color: #27ae60;
+}

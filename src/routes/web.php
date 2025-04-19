@@ -14,17 +14,23 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+// トップページ
 Route::get('/', function () {
     return view('index');
 });
-// Contactフォームの表示
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 
-// フォーム送信処理
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-
-// 確認画面を表示するためのルート（必要な場合）
-Route::get('/contact/confirmation', [ContactController::class, 'showConfirmation'])->name('contact.confirmation');
+// お問い合わせフォームの表示
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+
+// フォーム内容の確認画面（POST）
 Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
-Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+// 確認画面からの送信処理（POST）
+Route::post('/contact/send', [ContactController::class, 'submit'])->name('contact.send');
+
+// 送信完了後のサンクスページ
+Route::get('/contact/thanks', function () {
+    return view('contact.thanks');
+})->name('contact.thanks');
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
