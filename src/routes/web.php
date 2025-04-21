@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,11 @@ Route::get('/contact/thanks', function () {
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+// routes/web.php
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('admin.dashboard'); // ダッシュボード的なトップページ
+    })->name('admin.dashboard');
+    Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('admin.contacts.index');
+});

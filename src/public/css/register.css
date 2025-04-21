@@ -1,3 +1,9 @@
+body {
+    background-color: #e2dbd6;
+    /* 薄いベージュ */
+    font-family: Arial, sans-serif;
+}
+
 .register-form__content {
     margin: 0 auto;
     padding: 30px 15px;
@@ -5,18 +11,23 @@
 }
 
 .register-form__heading {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .form {
     margin: 0 auto;
-    width: 25%;
+    width: 50%;
     text-align: center;
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .form__group {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .form__group-title {
@@ -35,26 +46,35 @@
     height: 40px;
     border: 1px solid #ddd;
     border-radius: 3px;
-
+    background-color: #d6cfc7;
+        /* 明るめグレージュ */
+    color: #333;
+    font-size: 16px;
     appearance: none;
 }
 
 .form__button {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+        /* 横方向に中央揃え */
+    align-items: center;
+        /* 縦方向に中央揃え */
 }
 
 .form__button-submit {
     padding: 10px;
-    width: 30%;
-    height: 50px;
+    width: 10%;
+    height: 40px;
     border: none;
     border-radius: 3px;
-    background: #000;
-    color: #fff;
+    background-color: #746259;
+    color: #f8f8f8;
     cursor: pointer;
 }
 
 .login__link {
     margin-top: 20px;
     text-align: center;
+
 }

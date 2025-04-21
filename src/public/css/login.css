@@ -15,8 +15,12 @@
 
 .form {
     margin: 0 auto;
-    width: 25%;
+    width: 50%;
     text-align: center;
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .form__group {
@@ -39,7 +43,10 @@
     height: 40px;
     border: 1px solid #ddd;
     border-radius: 3px;
-
+    background-color: #d6cfc7;
+        /* 明るめグレージュ */
+    color: #333;
+    font-size: 16px;
     appearance: none;
 }
 
@@ -50,10 +57,10 @@
 .form__button-submit {
     padding: 10px;
     width: 30%;
-    height: 50px;
+    height: 40px;
     border: none;
     border-radius: 3px;
-    background: #000;
+    background: #a89584;
     color: #fff;
     cursor: pointer;
 }
@@ -61,4 +68,14 @@
 .register__link {
     margin-top: 20px;
     text-align: center;
+}
+
+body {
+    background-color: #a89584;
+}
+
+body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "游ゴシック体", "Noto Sans JP", sans-serif;
+        background-color: #e2d9d1;
+        /* これまでの背景色も一緒に */
 }
