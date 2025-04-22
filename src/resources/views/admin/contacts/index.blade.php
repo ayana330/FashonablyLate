@@ -1,29 +1,43 @@
-@extends('layouts.admin')
+@extends('layout')
 
 @section('content')
-<div class="admin-content">
-  <h2>お問い合わせ一覧</h2>
+<form action="{{ route('contacts.search') }}" method="GET" class="search-form">
+    @csrf
+    <div class="search-form__group">
+        <label for="name" class="search-form__label">名前:</label>
+        <input type="text" id="name" name="name" value="{{ request('name') }}" class="search-form__input" placeholder="名前を入力">
+    </div>
 
-  <table class="contact-table">
-    <thead>
-      <tr>
-        <th>名前</th>
-        <th>性別</th>
-        <th>メールアドレス</th>
-        <th>お問い合わせの種類</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach($contacts as $contact)
-      <tr>
-        <td>{{ $contact->name }}</td>
-        <td>{{ $contact->gender === 'male' ? '男性' : '女性' }}</td>
-        <td>{{ $contact->email }}</td>
-        <td>{{ $contact->contact_type }}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
-</div>
+    <div class="search-form__group">
+        <label for="email" class="search-form__label">メールアドレス:</label>
+        <input type="email" id="email" name="email" value="{{ request('email') }}" class="search-form__input" placeholder="メールアドレスを入力">
+    </div>
 
+    <div class="search-form__group">
+        <label for="gender" class="search-form__label">性別:</label>
+        <select id="gender" name="gender" class="search-form__input">
+            <option value="">選択してください</option>
+            <option value="male" {{ request('gender') == 'male' ? 'selected' : '' }}>男性</option>
+            <option value="female" {{ request('gender') == 'female' ? 'selected' : '' }}>女性</option>
+        </select>
+    </div>
+
+    <div class="search-form__group">
+        <label for="contact_type" class="search-form__label">お問い合わせの種類:</label>
+        <select id="contact_type" name="contact_type" class="search-form__input">
+            <option value="">選択してください</option>
+            <option value="general" {{ request('contact_type') == 'general' ? 'selected' : '' }}>一般</option>
+            <option value="support" {{ request('contact_type') == 'support' ? 'selected' : '' }}>サポート</option>
+        </select>
+    </div>
+
+    <div class="search-form__group">
+        <label for="date" class="search-form__label">日付:</label>
+        <input type="date" id="date" name="date" value="{{ request('date') }}" class="search-form__input">
+    </div>
+
+    <div class="search-form__group">
+        <button type="submit" class="search-form__button">検索</button>
+    </div>
+</form>
 @endsection

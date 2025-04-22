@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -57,4 +58,39 @@ class ContactController extends Controller
     // バリデーションなど必要であればここに追加
     return redirect()->route('contact.confirm')->withInput();
 }
+
+    public function search(Request $request)
+{
+    $query = Contact::query();
+
+    // 名前での検索
+    if ($request->filled('name')) {
+        $query->where('name', 'like', '%' . $request->name . '%');
+    }
+
+    // メールアドレスでの検索
+    if ($request->filled('email')) {
+        $query->where('email', 'like', '%' . $request->email . '%');
+    }
+
+    // 性別での検索
+    if ($request->filled('gender')) {
+        $query->where('gender', $request->gender);
+    }
+
+    // お問い合わせ種類での検索
+    if ($request->filled('contact_type')) {
+        $query->where('contact_type', $request->contact_type);
+    }
+
+    // 日付での検索
+    if ($request->filled('date')) {
+        $query->whereDate('created_at', $request->date);
+    }
+
+    $contacts = $query->get();
+
+    return view('admin.contacts.index', compact('contacts'));
+}
+
 }

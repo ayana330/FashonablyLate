@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +38,36 @@ Route::get('/contact/thanks', function () {
     return view('contact.thanks');
 })->name('contact.thanks');
 
+// お問い合わせのデータ登録（POST）
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-// routes/web.php
-
+// 認証が必要な管理画面
 Route::prefix('admin')->middleware('auth')->group(function () {
+    // ダッシュボード
     Route::get('/', function () {
         return view('admin.dashboard'); // ダッシュボード的なトップページ
     })->name('admin.dashboard');
+
+    // お問い合わせ一覧
     Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('admin.contacts.index');
 });
+
+// ユーザー登録ページの表示と処理
+Route::get('/register', [RegisterController::class, 'show'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+// ログインページの表示
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.store');
+
+// ログアウト処理
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('admin.contacts.index');
+});
+Route::get('/admin/contacts/search', [ContactController::class, 'search'])->name('contacts.search');
+
+Route::get('/search', function () {
+    return view('search');
+})->name('search');

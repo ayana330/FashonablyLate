@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -13,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
     <div class="header__inner">
       <div class="header-utilities">
         <a class="header__logo" href="/">
@@ -21,13 +20,11 @@
         </a>
         <nav>
           <ul class="header-nav">
-            <!-- 会員登録ボタンの追加 -->
             @guest   
               <li class="header-nav__item">
                 <a class="header-nav__link" href="{{ route('register') }}">register</a>
               </li>
             @endguest
-            <!-- マイページとログアウトボタン -->
             @auth
               <li class="header-nav__item">
                 <a class="header-nav__link" href="/mypage">マイページ</a>
