@@ -1,26 +1,10 @@
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FashonablyLate</title>
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
-</head>
-<body>
-  <header class="header">
-    <div class="hedder__inner">
-        <a class="header__logo" href="/">
-        FashonablyLate</a>
-    </div>
-  </header>
+@extends('layouts.app')
 
-  <main>
-    <div class="contact-form__content">
-        <div class="contact-form__heading">
-        <h2>Contact</h2>
-        </div>
-    </div>
-    <form class="form" method="POST" action="{{ route('contact.confirm') }}">
+@section('content')
+    <h1>お問い合わせフォーム入力ページ</h1>
+
+
+    <form action="{{ route('contact.confirm') }}" method="POST">
        @csrf
       <!-- お名前　-->
         <div class="form__group">

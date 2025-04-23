@@ -20,14 +20,11 @@ use App\Http\Controllers\Admin\ContactController as AdminContactController;
 */
 
 // トップページ
-Route::get('/', function () {
-    return redirect()->route('login');
-});
-
-// お問い合わせフォームの表示
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::get('/', [ContactController::class, 'showForm'])->name('contact.form');
 
 // フォーム内容の確認画面（POST）
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+
 Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 
 // 確認画面からの送信処理（POST）
@@ -75,3 +72,7 @@ Route::get('/search', function () {
 Route::get('/confirm', function () {
     return view('confirm');
 });
+
+// お問い合わせフォームの表示（これを contact.input としてルート名をつける）
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.input');
+

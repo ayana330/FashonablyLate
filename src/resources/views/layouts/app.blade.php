@@ -1,48 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FashonablyLate</title>
-  <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-  @yield('css')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせフォーム</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- CSS -->
 </head>
-
 <body>
-    <div class="container">
-    <div class="header__inner">
-      <div class="header-utilities">
-        <a class="header__logo" href="/">
-          FashonablyLate
-        </a>
-        <nav>
-          <ul class="header-nav">
-            <!-- 会員登録ボタンの追加 -->
-            @guest   
-              <li class="header-nav__item">
-                <a class="header-nav__link" href="{{ route('register') }}">register</a>
-              </li>
-            @endguest
-            <!-- マイページとログアウトボタン -->
-            @auth
-              <li class="header-nav__item">
-                <a class="header-nav__link" href="/register">register</a>
-              </li>
-           </form>
-            @endauth
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
 
-  <main>
+    <!-- ナビゲーションメニュー -->
+    <nav>
+        <ul>
+            <li><a href="{{ route('contact.form') }}">お問い合わせフォーム入力ページ</a></li>
+            <li><a href="{{ route('contact.confirm') }}">お問い合わせフォーム確認ページ</a></li>
+            <li><a href="{{ route('contact.thanks') }}">サンクスページ</a></li>
+            <li><a href="{{ route('admin.dashboard') }}">管理画面</a></li>
+            <li><a href="{{ route('register') }}">ユーザ登録ページ</a></li>
+            <li><a href="{{ route('login') }}">ログインページ</a></li>
+        </ul>
+    </nav>
+
+    <!-- コンテンツ -->
     @yield('content')
-  </main>
-</body>
 
+</body>
 </html>

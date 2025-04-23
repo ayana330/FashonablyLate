@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    // フォーム表示
-    public function index()
+    // お問い合わせフォームの表示
+    public function showForm()
     {
-        return view('index');
+        return view('contact.form'); // フォームのBladeファイルを返す
     }
+
+
 
     // 確認画面表示
     public function confirm(Request $request)
@@ -26,11 +28,12 @@ class ContactController extends Controller
         'tel3' => 'required|digits_between:1,5',
         'address' => 'required|string|max:255',
         'inquiry_content' => 'required|string',
-    ]);
+        ]);
         
         // 入力された内容をセッションに保存
-        $request->session()->put('contact_inputs', $request->all());
-
+        $request->session()->put('contact_inputs', $validated);
+        return view('contact.confirm', ['inputs' => $validated]);
+    
         // 確認画面に遷移
         return view('contact.confirm', [
             'inputs' => $request->all(),
@@ -41,7 +44,7 @@ class ContactController extends Controller
     public function submit(Request $request)
     {
         // 「戻る」が押された場合、入力画面へリダイレクト（入力値も維持）
-    if ($request->input('action') === 'back') {
+       if ($request->input('action') === 'back') {
         return redirect()->route('contact.form')->withInput();
     }
         // セッションからデータを取得
@@ -53,18 +56,17 @@ class ContactController extends Controller
         // セッションを削除
         $request->session()->forget('contact_inputs');
 
-        // 完了画面へリダイレクト
-        return view('contact.thanks');
     }
 
     public function store(Request $request)
-{
+    {
     // バリデーションなど必要であればここに追加
-    return redirect()->route('contact.confirm')->withInput();
-}
+    $request->session()->forget('contact_inputs');
+    return redirect()->route('contact.thanks');
+    }
 
     public function search(Request $request)
-{
+    {
     $query = Contact::query();
 
     // 名前での検索
@@ -95,6 +97,5 @@ class ContactController extends Controller
     $contacts = $query->get();
 
     return view('admin.contacts.index', compact('contacts'));
-}
-
+    }
 }
