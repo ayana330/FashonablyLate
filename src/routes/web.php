@@ -71,3 +71,7 @@ Route::get('/admin/contacts/search', [ContactController::class, 'search'])->name
 Route::get('/search', function () {
     return view('search');
 })->name('search');
+
+Route::get('/confirm', function () {
+    return view('confirm');
+});

@@ -30,14 +30,9 @@
             <!-- マイページとログアウトボタン -->
             @auth
               <li class="header-nav__item">
-                <a class="header-nav__link" href="/mypage">マイページ</a>
+                <a class="header-nav__link" href="/register">register</a>
               </li>
-              <li class="header-nav__item">
-                <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <button class="header-nav__button">ログアウト</button>
-                </form>
-              </li>
+           </form>
             @endauth
           </ul>
         </nav>

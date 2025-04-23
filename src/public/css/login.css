@@ -79,3 +79,8 @@ body {
         background-color: #e2d9d1;
         /* これまでの背景色も一緒に */
 }
+
+.header {
+    background-color: #ddd;
+    text-align: center;
+}

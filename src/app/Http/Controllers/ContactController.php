@@ -40,6 +40,10 @@ class ContactController extends Controller
     // 送信処理
     public function submit(Request $request)
     {
+        // 「戻る」が押された場合、入力画面へリダイレクト（入力値も維持）
+    if ($request->input('action') === 'back') {
+        return redirect()->route('contact.form')->withInput();
+    }
         // セッションからデータを取得
         $data = $request->session()->get('contact_inputs');
 
