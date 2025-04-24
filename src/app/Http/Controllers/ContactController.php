@@ -18,6 +18,8 @@ class ContactController extends Controller
     // 確認画面表示
     public function confirm(Request $request)
     {
+        $inputs = $request->all(); // すべて取得
+
         // バリデーション
         $validated = $request->validate([
         'last_name' => 'required|string|max:255',
@@ -27,17 +29,20 @@ class ContactController extends Controller
         'tel2' => 'required|digits_between:1,5',
         'tel3' => 'required|digits_between:1,5',
         'address' => 'required|string|max:255',
+        'building' => 'nullable|string|max:255',
+        'inquiry_type' => 'required|string',
         'inquiry_content' => 'required|string',
         ]);
         
         // 入力された内容をセッションに保存
-        $request->session()->put('contact_inputs', $validated);
-        return view('contact.confirm', ['inputs' => $validated]);
+        $request->session()->put('contact_inputs', $inputs);
+        
+        // セッションの内容を確認
+    dd($request->session()->get('contact_inputs')); // セッションに保存された内容をダンプ
     
         // 確認画面に遷移
         return view('contact.confirm', [
-            'inputs' => $request->all(),
-        ]);
+            'inputs' => $inputs]);
     }
 
     // 送信処理
