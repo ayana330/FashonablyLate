@@ -69,10 +69,6 @@ Route::get('/search', function () {
     return view('search');
 })->name('search');
 
-Route::get('/confirm', function () {
-    return view('confirm');
-});
-
 // お問い合わせフォームの表示（これを contact.input としてルート名をつける）
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.input');
 
