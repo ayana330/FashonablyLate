@@ -4,7 +4,7 @@
     <h1>お問い合わせフォーム入力ページ</h1>
 
 
-    <form action="{{ route('contact.confirm') }}" method="POST">
+    <form action="/confirm" method="POST">
        @csrf
       <!-- お名前　-->
         <div class="form__group">
@@ -182,5 +182,4 @@
           </div>
     </form>
   </main>
-</body>
-</html>
+@endsection

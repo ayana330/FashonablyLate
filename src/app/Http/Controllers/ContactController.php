@@ -38,7 +38,7 @@ class ContactController extends Controller
         $request->session()->put('contact_inputs', $inputs);
         
         // セッションの内容を確認
-    dd($request->session()->get('contact_inputs')); // セッションに保存された内容をダンプ
+    //dd($request->session()->get('contact_inputs')); // セッションに保存された内容をダンプ
     
         // 確認画面に遷移
         return view('contact.confirm', [
@@ -50,7 +50,7 @@ class ContactController extends Controller
     {
         // 「戻る」が押された場合、入力画面へリダイレクト（入力値も維持）
        if ($request->input('action') === 'back') {
-        return redirect()->route('contact.form')->withInput();
+        return redirect('/')->withInput();
     }
         // セッションからデータを取得
         $data = $request->session()->get('contact_inputs');
@@ -60,14 +60,8 @@ class ContactController extends Controller
 
         // セッションを削除
         $request->session()->forget('contact_inputs');
+        return view('contact.thanks'); // フォームのBladeファイルを返す
 
-    }
-
-    public function store(Request $request)
-    {
-    // バリデーションなど必要であればここに追加
-    $request->session()->forget('contact_inputs');
-    return redirect()->route('contact.thanks');
     }
 
     public function search(Request $request)

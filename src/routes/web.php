@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
-
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,15 +20,14 @@ use App\Http\Controllers\Admin\ContactController as AdminContactController;
 */
 
 // トップページ
-Route::get('/', [ContactController::class, 'showForm'])->name('contact.form');
+Route::get('/', [ContactController::class, 'showForm']);
 
 // フォーム内容の確認画面（POST）
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+//Route::get('/contact', [ContactController::class, //'showForm'])->name('contact.form');
 
-Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
-
+Route::post('/confirm', [ContactController::class, 'confirm']);
 // 確認画面からの送信処理（POST）
-Route::post('/contact/send', [ContactController::class, 'submit'])->name('contact.send');
+Route::post('/send', [ContactController::class, 'submit']);
 
 // 送信完了後のサンクスページ
 Route::get('/contact/thanks', function () {
@@ -68,7 +67,4 @@ Route::get('/admin/contacts/search', [ContactController::class, 'search'])->name
 Route::get('/search', function () {
     return view('search');
 })->name('search');
-
-// お問い合わせフォームの表示（これを contact.input としてルート名をつける）
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.input');
 

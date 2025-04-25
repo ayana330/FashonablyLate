@@ -6,7 +6,7 @@
     <h2>お問い合わせ内容 確認</h2>
   </div>
 
-   <form action="{{ route('contact.confirm') }}" method="POST">
+   <form action="/send" method="POST">
         @csrf
 
     <table class="confirm-table">

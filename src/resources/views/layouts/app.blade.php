@@ -11,9 +11,8 @@
     <!-- ナビゲーションメニュー -->
     <nav>
         <ul>
-            <li><a href="{{ route('contact.form') }}">お問い合わせフォーム入力ページ</a></li>
-            <li><a href="{{ route('contact.confirm') }}">お問い合わせフォーム確認ページ</a></li>
-            <li><a href="{{ route('contact.thanks') }}">サンクスページ</a></li>
+            <li><a href="/">お問い合わせフォーム入力ページ</a></li>
+            <li><a href="/confirm">お問い合わせフォーム確認ページ</a></li>
             <li><a href="{{ route('admin.dashboard') }}">管理画面</a></li>
             <li><a href="{{ route('register') }}">ユーザ登録ページ</a></li>
             <li><a href="{{ route('login') }}">ログインページ</a></li>

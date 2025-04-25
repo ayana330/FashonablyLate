@@ -22,7 +22,7 @@
       </p>
       <!-- HOMEボタン -->
       <div class="thanks__button">
-        <a href="{{ route('contact.input') }}" class="thanks__link">HOME</a>
+        <a href="/" class="thanks__link">HOME</a>
       </div>
     </div>
   </main>
