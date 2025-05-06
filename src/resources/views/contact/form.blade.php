@@ -37,14 +37,15 @@
           </div>
           <div class="form__group-content">
             <label class="form__radio">
-              <input type="radio" name="gender" value="男性" {{ old('gender', '男性') == '男性' ? 'checked' : '' }}> 男性
+              <input type="radio" name="gender" value="1" {{ old('gender', '1') == '1' ? 'checked' : '' }}> 男性
             </label>
             <label class="form__radio">
-              <input type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}> 女性
+              <input type="radio" name="gender" value="2" {{ old('gender') == '2' ? 'checked' : '' }}> 女性
             </label>
             <label class="form__radio">
-              <input type="radio" name="gender" value="その他" {{ old('gender') == 'その他' ? 'checked' : '' }}> その他
+              <input type="radio" name="gender" value="3" {{ old('gender') == '3' ? 'checked' : '' }}> その他
             </label>
+
           </div>
           <div class="form__error">
             @error('gender')
@@ -142,12 +143,14 @@
           <div class="form__group-content">
             <div class="form__input--text">
               <select name="inquiry_type">
-                <option value="" disabled {{ old('inquiry_type') == '' ? 'selected' : '' }}>選択してください</option>
-                <option value="質問"> {{ old('inquiry_type') == '質問' ? 'selected' : '' }}質問</option>
-                <option value="サポート" {{ old('inquiry_type') == 'サポート' ? 'selected' : '' }}>サポート</option>
-                <option value="フィードバック" {{ old('inquiry_type') == 'フィードバック' ? 'selected' : '' }}>フィードバック</option>
-                <option value="その他" {{ old('inquiry_type') == 'その他' ? 'selected' : '' }}>その他</option>
-              </select>
+                <select name="inquiry_type">
+                  <option value="" disabled {{ old('inquiry_type') == '' ? 'selected' : '' }}>選択してください</option>
+                  <option value="1" {{ old('inquiry_type') == '1' ? 'selected' : '' }}>質問</option>
+                  <option value="2" {{ old('inquiry_type') == '2' ? 'selected' : '' }}>サポート</option>
+                  <option value="3" {{ old('inquiry_type') == '3' ? 'selected' : '' }}>フィードバック</option>
+                  <option value="4" {{ old('inquiry_type') == '4' ? 'selected' : '' }}>その他</option>
+                </select>
+
             </div>
             <div class="form__error">
               @error('inquiry_type')

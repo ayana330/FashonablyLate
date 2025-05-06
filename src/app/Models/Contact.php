@@ -11,11 +11,15 @@ class Contact extends Model
 
     // fillable プロパティを指定することで、マスアサインメントを許可するフィールドを設定
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'gender',
-        'contact_type',
-        'message',
+        'tel',
+        'address',
+        'building',
+        'detail',
+        'category_id',
     ];
 
     // テーブル名がデフォルトのテーブル名（contacts）と異なる場合は指定

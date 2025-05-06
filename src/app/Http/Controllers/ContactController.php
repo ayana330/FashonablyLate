@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -25,12 +26,13 @@ class ContactController extends Controller
         'last_name' => 'required|string|max:255',
         'first_name' => 'required|string|max:255',
         'email' => 'required|email',
+        'gender' => 'required|in:1,2,3',
         'tel1' => 'required|digits_between:1,5',
         'tel2' => 'required|digits_between:1,5',
         'tel3' => 'required|digits_between:1,5',
         'address' => 'required|string|max:255',
         'building' => 'nullable|string|max:255',
-        'inquiry_type' => 'required|string',
+        'inquiry_type' => 'required|in:1,2,3,4',
         'inquiry_content' => 'required|string',
         ]);
         
@@ -51,13 +53,26 @@ class ContactController extends Controller
         // 「戻る」が押された場合、入力画面へリダイレクト（入力値も維持）
        if ($request->input('action') === 'back') {
         return redirect('/')->withInput();
-    }
+        }
         // セッションからデータを取得
         $data = $request->session()->get('contact_inputs');
+        $tel = $data['tel1'] . '-' . $data['tel2'] . '-' . $data['tel3'];
 
         // ここでデータを保存したり、メールを送信する処理を追加
         // 例: DB保存やメール送信
-
+        
+        Contact::create([
+            'first_name' => $data('first_name'),
+            'last_name' => $data('last_name'),
+            'email' => $data('email'),
+            'gender' => $data('gender'),
+            'tel' => $tel,
+            'address' => $data('address'),
+            'building' => $data('building'),
+            'detail' => $data('inquiry_content'),
+            'category_id' => $data('inquiry_type'),
+        ]);
+        
         // セッションを削除
         $request->session()->forget('contact_inputs');
         return view('contact.thanks'); // フォームのBladeファイルを返す
@@ -70,7 +85,10 @@ class ContactController extends Controller
 
     // 名前での検索
     if ($request->filled('name')) {
-        $query->where('name', 'like', '%' . $request->name . '%');
+        $query->where(function ($q) use ($request) {
+        $q->where('first_name', 'like', '%' . $request->name . '%')
+          ->orWhere('last_name', 'like', '%' . $request->name . '%');
+    });
     }
 
     // メールアドレスでの検索
@@ -85,7 +103,7 @@ class ContactController extends Controller
 
     // お問い合わせ種類での検索
     if ($request->filled('contact_type')) {
-        $query->where('contact_type', $request->contact_type);
+        $query->where('category_id', $request->contact_type);
     }
 
     // 日付での検索
