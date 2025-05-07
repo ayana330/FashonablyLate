@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Contacts;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ContactFactory extends Factory
@@ -18,6 +17,7 @@ class ContactFactory extends Factory
     {
         return [
             'first_name' = $this->faker->first_name,
+            'last_name' = $this->faker->last_name,
             'email' = $this->faker->unique()->safeEmail,
 
         ];
