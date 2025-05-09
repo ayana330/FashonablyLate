@@ -13,11 +13,11 @@
           </div>
           <div class="form__group-content">
             <div class="form__input--text">
-              <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例：山田" required>
+              <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例：山田" >
  
             </div>
             <div class="form__input--text">
-              <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例：太郎" required>
+              <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例：太郎" >
             </div>
             <div class="form__error">
               @error('last_name')
@@ -143,7 +143,6 @@
           <div class="form__group-content">
             <div class="form__input--text">
               <select name="inquiry_type">
-                <select name="inquiry_type">
                   <option value="" disabled {{ old('inquiry_type') == '' ? 'selected' : '' }}>選択してください</option>
                   <option value="1" {{ old('inquiry_type') == '1' ? 'selected' : '' }}>質問</option>
                   <option value="2" {{ old('inquiry_type') == '2' ? 'selected' : '' }}>サポート</option>

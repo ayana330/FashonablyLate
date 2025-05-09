@@ -6,6 +6,8 @@ use App\Models\Author;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ContactRequest;
+
 class ContactController extends Controller
 {
     // お問い合わせフォームの表示
@@ -17,24 +19,10 @@ class ContactController extends Controller
 
 
     // 確認画面表示
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
         $inputs = $request->all(); // すべて取得
 
-        // バリデーション
-        $validated = $request->validate([
-        'last_name' => 'required|string|max:255',
-        'first_name' => 'required|string|max:255',
-        'email' => 'required|email',
-        'gender' => 'required|in:1,2,3',
-        'tel1' => 'required|digits_between:1,5',
-        'tel2' => 'required|digits_between:1,5',
-        'tel3' => 'required|digits_between:1,5',
-        'address' => 'required|string|max:255',
-        'building' => 'nullable|string|max:255',
-        'inquiry_type' => 'required|in:1,2,3,4',
-        'inquiry_content' => 'required|string',
-        ]);
         
         // 入力された内容をセッションに保存
         $request->session()->put('contact_inputs', $inputs);
@@ -60,17 +48,17 @@ class ContactController extends Controller
 
         // ここでデータを保存したり、メールを送信する処理を追加
         // 例: DB保存やメール送信
-        
+
         Contact::create([
-            'first_name' => $data('first_name'),
-            'last_name' => $data('last_name'),
-            'email' => $data('email'),
-            'gender' => $data('gender'),
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'gender' => $data['gender'],
             'tel' => $tel,
-            'address' => $data('address'),
-            'building' => $data('building'),
-            'detail' => $data('inquiry_content'),
-            'category_id' => $data('inquiry_type'),
+            'address' => $data['address'],
+            'building' => $data['building'],
+            'detail' => $data['inquiry_content'],
+            'category_id' => $data['inquiry_type'],
         ]);
         
         // セッションを削除
