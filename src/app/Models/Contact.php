@@ -18,9 +18,7 @@ class Contact extends Model
         'detail',
     ];
 
-    public static $rules = array(
-        
-    )
+    public static $rules = [];
     // テーブル名がデフォルトのテーブル名（contacts）と異なる場合は指定
     // protected $table = 'custom_table_name';
 }
