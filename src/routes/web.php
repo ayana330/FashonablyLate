@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,5 @@ Route::get('/search', function () {
 
 Route::get('/session', [SessionController::class, 'getSes']);
 Route::post('/session', [SessionController::class, 'postSes']);
+
+Route::get('/', [AdminController::class, 'index']);
