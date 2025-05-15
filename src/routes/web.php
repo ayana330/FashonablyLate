@@ -74,4 +74,3 @@ Route::get('/search', function () {
 Route::get('/session', [SessionController::class, 'getSes']);
 Route::post('/session', [SessionController::class, 'postSes']);
 
-Route::get('/', [AdminController::class, 'index']);
