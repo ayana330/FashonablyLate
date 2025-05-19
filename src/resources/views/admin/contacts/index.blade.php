@@ -1,6 +1,8 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
+  <h1>Admin</h1>
+
 <form action="{{ route('contacts.search') }}" method="GET" class="search-form">
     @csrf
     <div class="search-form__group">
@@ -38,6 +40,14 @@
 
     <div class="search-form__group">
         <button type="submit" class="search-form__button">検索</button>
+        <button type="submit" class="search-form__button">リセット</button>
+        <button type="submit" class="search-form__button">エクスポート</button>   
     </div>
+
+    <table border="1">
+        <tr>
+          <th colspan="5">名前 性別 メールアドレス お問い合わせの種類 </th>
+        </tr>
+    </table>
 </form>
 @endsection
