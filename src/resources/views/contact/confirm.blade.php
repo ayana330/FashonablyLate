@@ -1,71 +1,70 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="confirm__content">
-  <div class="confirm__heading">
-    <h2>お問い合わせ内容 確認</h2>
-  </div>
+    <h1>Confirm</h1>
+
 
    <form action="/send" method="POST">
         @csrf
-
-    <table class="confirm-table">
-      <tr>
-        <th>お名前（姓）</th>
-        <td>{{ $inputs['last_name'] ?? '未入力' }}</td>
+  
+  <form class="form">
+  <div class="confirm-table">
+    <table class="confirm-table__inner">
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">お名前</th>
+        <td class="confirm-table__text">
+          <input type="text" name="name" value="山田 太郎" />
+        </td>
       </tr>
-      <tr>
-        <th>お名前（名）</th>
-        <td>{{ $inputs['first_name'] ?? '未入力' }}</td>
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">性別</th>
+        <td class="confirm-table__text">
+          <input type="text" name="gender" value="男性" />
+        </td>
       </tr>
-      <tr>
-        <th>性別</th>
-        <td>{{ $inputs['gender'] ?? '未選択' }}</td>
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">メールアドレス</th>
+        <td class="confirm-table__text">
+          <input type="email" name="email" value="test@example.com" />
+        </td>
       </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td>{{ $inputs['email'] ?? '未入力'}}</td>
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">電話番号</th>
+        <td class="confirm-table__text">
+          <input type="tel" name="tel" value="08012345678" />
+        </td>
       </tr>
-      <tr>
-        <th>電話番号</th>
-        <td>{{ $inputs['tel1'] ?? '未入力'}}-{{ $inputs['tel2'] ?? '' }}-{{ $inputs['tel3'] ?? '' }}</td>
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">住所</th>
+        <td class="confirm-table__text">
+          <input type="text" name="住所" value="東京都渋谷区千駄ヶ谷1-2-3" />
+        </td>
       </tr>
-      <tr>
-        <th>住所</th>
-        <td>{{ $inputs['address'] ?? '未入力' }}</td>
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">建物名</th>
+        <td class="confirm-table__text">
+          <input type="text" name="建物名" value="千駄ヶ谷マンション101" />
+        </td>
       </tr>
-      <tr>
-        <th>建物名</th>
-        <td>{{ $inputs['building'] ?? '未入力' }}</td>
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">お問い合わせの種類</th>
+        <td class="confirm-table__text">
+          <input type="text" name="お問い合わせの種類" value="商品の交換について" />
+        </td>
       </tr>
-      <tr>
-        <th>お問い合わせの種類</th>
-        <td>{{ $inputs['inquiry_type'] ?? '未選択' }}</td>
-      </tr>
-      <tr>
-        <th>お問い合わせ内容</th>
-        <td>{!! nl2br(e($inputs['inquiry_content'] ?? '未入力')) !!}</td>
-      </tr>
+      <tr class="confirm-table__row">
+        <th class="confirm-table__header">お問い合わせ内容</th>
+        <td class="confirm-table__text">
+          <input type="text" name="お問い合わせ内容" value="届いた商品が注文した商品ではありませんでした。
+          商品の取り替えをお願いします。" />
     </table>
+  </div>
+  <div class="form__button">
+    <button class="form__button-submit" type="submit">送信</button>
 
-    {{-- hiddenフィールドで値を保持 --}}
-    @if (!empty($inputs))
-    @foreach ($inputs as $name => $value)
-      @if(is_array($value))
-        @foreach($value as $v)
-          <input type="hidden" name="{{ $name }}[]" value="{{ $v }}">
-        @endforeach
-      @else
-        <input type="hidden" name="{{ $name }}" value="{{ $value }}">
-      @endif
-    @endforeach
-    @endif
-    
-    <div class="form__buttons">
-      <button type="submit" name="action" value="back">戻る</button>
-      <button type="submit" name="action" value="submit">送信</button>
-    </div>
+    <button class="form__button-submit" type="submit">修正</button>
+
+        </div>
   </form>
-</div>
-@endsection
 
+@endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>お問い合わせフォーム入力ページ</h1>
+    <h1>Contact</h1>
 
 
     <form action="/confirm" method="POST">
