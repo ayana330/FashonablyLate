@@ -44,10 +44,5 @@
         <button type="submit" class="search-form__button">エクスポート</button>   
     </div>
 
-    <table border="1">
-        <tr>
-          <th colspan="5">名前 性別 メールアドレス お問い合わせの種類 </th>
-        </tr>
-    </table>
 </form>
 @endsection

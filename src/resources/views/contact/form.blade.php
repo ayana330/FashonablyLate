@@ -3,6 +3,7 @@
 @section('content')
     <h1>Contact</h1>
 
+    <link rel="stylesheet" href="css/form.css" />
 
     <form action="/confirm" method="POST">
        @csrf
