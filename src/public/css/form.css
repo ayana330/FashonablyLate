@@ -5,14 +5,13 @@ h1 {
 main {
     background-color: #fff;
     width: 800px;
-    height: 400px;
     margin: 0 auto;
     text-align: justify;
 }
 
 table {
     background-color: #fff;
-    width: 100%;
+    width: 500%;
     height: 500px;
     margin: 0 auto;
 }
@@ -24,6 +23,6 @@ th {
 
 .form__group {
     text-align: center;
-    font-size: 16px;
+    font-size: 50px;
 }
 
