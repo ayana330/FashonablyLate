@@ -15,7 +15,7 @@
     font-size: 24px;
 }
 
-.contact-form__content {
+/* .contact-form__content {
     margin: 0 auto;
     padding: 30px 15px;
     max-width: 1230px;
@@ -55,7 +55,7 @@
 .form__input--text input,
 .form__input--textarea textarea {
     padding: 10px;
-    width: 600px;
+    width: 90%;
     border: 1px solid #ddd;
     border-radius: 3px;
 
@@ -83,4 +83,4 @@
     background: #000;
     color: #fff;
     cursor: pointer;
-}
+} */
