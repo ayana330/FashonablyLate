@@ -9,6 +9,7 @@
 
 <form action="{{ route('contacts.search') }}" method="GET" class="search-form">
     @csrf
+    <div class="flex">
     <div class="search-form__group">
         <label for="name" class="search-form__label">名前:</label>
         <input type="text" id="name" name="name" value="{{ request('name') }}" class="search-form__input" placeholder="名前を入力">
@@ -45,6 +46,10 @@
     <div class="search-form__group">
         <button type="submit" class="search-form__button">検索</button>
         <button type="submit" class="search-form__button">リセット</button>
+    </div>
+    </div>
+
+    <div class="search-form__group">
         <button type="submit" class="search-form__button">エクスポート</button>   
     </div>
 

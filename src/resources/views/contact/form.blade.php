@@ -9,6 +9,7 @@
     <form action="/confirm" method="POST">
        @csrf
        <table>
+        <div class="flex">
         <tr>
           <th><span class="form__label--item">お名前</span></th>
           <td>
@@ -155,9 +156,10 @@
           <!-- 確認画面ボタン -->
           <div class="form__group">
             <div class="form__group-content">
-              <button type="submit">確認画面へ</button>
+              <button type="submit">確認画面</button>
             </div>
           </div>
+        </div>
     </form>
   </main>
 @endsection
