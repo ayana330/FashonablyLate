@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
+@endsection
+
 @section('content')
     <h1>Confirm</h1>
-
 
    <form action="/send" method="POST">
         @csrf
@@ -61,10 +64,9 @@
   </div>
   <div class="form__button">
     <button class="form__button-submit" type="submit">送信</button>
-
-    <button class="form__button-submit" type="submit">修正</button>
-
-        </div>
+    
+    <a href="form.blade.php">修正</a>
+  </div>
   </form>
 
 @endsection

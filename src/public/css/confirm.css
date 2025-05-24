@@ -1,0 +1,42 @@
+
+
+
+h1 {
+    text-align: center;
+}
+
+main {
+    width: 600px;
+    margin: 0 auto;
+    text-align: justify;
+    padding: 10px 10px;
+}
+
+table {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+    border: solid 2px#DCDCDC;
+}
+
+.form__button {
+    text-align: center;
+    padding: 20px;
+}
+
+th {
+    background-color: #B19286;
+    color: #fff;
+    font-size: 14px;
+    width: 30%;
+}
+
+.confirm-table__text {
+    width: 50%;
+}
+
+td {
+    width: 500px;
+}
+

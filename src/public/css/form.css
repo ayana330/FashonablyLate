@@ -26,3 +26,6 @@ th {
     font-size: 50px;
 }
 
+.form__input--text {
+    text-align: justify;
+}
