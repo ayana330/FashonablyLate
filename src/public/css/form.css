@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    color: #643d28;
 }
 
 main {
@@ -35,7 +36,10 @@ input, textarea, select {
     padding: 4px;
     border: 1px solid #ccc;
     border-radius: 3px;
+}
 
+input, textarea {
+    width: 200px;
 }
 
 button {
