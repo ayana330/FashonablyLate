@@ -25,11 +25,20 @@ table {
     padding: 20px;
 }
 
+.form__button button {
+    margin: 0 10px;
+}
+
+.form__button a {
+    margin: 0 10px;
+}
+
 th {
     background-color: #B19286;
     color: #fff;
     font-size: 14px;
     width: 30%;
+    border-bottom: #e2cfca solid 1px;
 }
 
 .confirm-table__text {
@@ -38,5 +47,6 @@ th {
 
 td {
     width: 500px;
+    border-bottom: #e2cfca solid 1px;
 }
 

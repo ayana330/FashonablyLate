@@ -29,3 +29,21 @@ th {
 .form__input--text {
     text-align: justify;
 }
+
+input, textarea, select {
+    background-color: #f1edea;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+}
+
+button {
+    font-size: 16px;
+    background-color: #553f33;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+}
+
