@@ -16,9 +16,8 @@
 
   <main class="thanks__content">
     <div class="thanks__message-box">
-      <h2 class="thanks__heading">送信が完了しました</h2>
       <p class="thanks__message">
-        お問い合わせいただきありがとうございました
+        お問い合わせありがとうございました
       </p>
       <!-- HOMEボタン -->
       <div class="thanks__button">

@@ -1,12 +1,10 @@
-
-
-
 h1 {
     text-align: center;
+    color: #643d28;
 }
 
 main {
-    width: 600px;
+    width: 800px;
     margin: 0 auto;
     text-align: justify;
     padding: 10px 10px;
@@ -34,10 +32,11 @@ table {
 }
 
 th {
-    background-color: #B19286;
+    background-color: #b4a797;
     color: #fff;
     font-size: 14px;
-    width: 30%;
+    text-align: center;
+    width: 20%;
     border-bottom: #e2cfca solid 1px;
 }
 
@@ -50,3 +49,7 @@ td {
     border-bottom: #e2cfca solid 1px;
 }
 
+input {
+    border: none;
+    outline: none;
+}
