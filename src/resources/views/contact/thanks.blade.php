@@ -6,20 +6,17 @@
 
 @section('content')
 
-  <main class="thanks__content">
-    <div class="thanks__message-box">
-      <p class="thanks__message">
+  <main>
+    <div class="thanks__content">
+      <div class="thanks__heading">
         お問い合わせありがとうございました
-      </p>
-      <!-- HOMEボタン -->
-      <div class="thanks__button">
-        <a href="/" class="thanks__link">HOME</a>
       </div>
+      <div class="thanks__content-back">
+        Thank you
+      </div>
+    <div class="thanks__content">
+      <button type="submit">HOME</button>
     </div>
-
-  <div class="thanks-page-bg__inner">
-    <span class="thanks-page-bg__text">Thank you</span>
-  </div>
+    </div>
   </main>
-</body>
-</html>
+@endsection
