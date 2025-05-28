@@ -1,6 +1,6 @@
 h1 {
     text-align: center;
-    color: #643d28;
+    color: #7e6152;
 }
 
 main {
@@ -45,8 +45,10 @@ th {
 }
 
 td {
-    width: 500px;
+    width: 800px;
     border-bottom: #e2cfca solid 1px;
+    padding-bottom: 0,auto;
+    margin-bottom: 100px;
 }
 
 input {

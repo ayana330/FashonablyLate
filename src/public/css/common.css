@@ -1,19 +1,24 @@
 .header {
-    background: #000;
+    background: #fff;
+    color: #815a5a;
+    border-bottom: #7a5a30 solid 1px;
 }
 
 .header__inner {
     margin: 0 auto;
-    padding: 30px 15px;
+    padding: 30px 10px;
     max-width: 1230px;
+    text-align: center;
+    
 }
 
 .header__logo {
-    color: #fff;
+    color: #7a5a30;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
+    font-size: 32px;
+    text-align: center;
 }
+
 
 /* .contact-form__content {
     margin: 0 auto;

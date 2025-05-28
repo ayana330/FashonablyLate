@@ -1,7 +1,11 @@
-.header {
-    display: none;
+.thanks__content:first-of-type {
+    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
 }
 
-h5 {
-    font-size: 18px;
+.thanks__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
