@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
-@endextends
 
-
+@section('css')
 <head>
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
+
+@section('content')
 <div class="admin-content">
   <h2>お問い合わせ一覧</h2>
   <table class="contact-table">
@@ -34,3 +35,4 @@
     </tbody>
   </table>
 </div>
+
