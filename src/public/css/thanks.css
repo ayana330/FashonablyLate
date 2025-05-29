@@ -1,11 +1,15 @@
 .thanks__content:first-of-type {
     height: 100vh;
     flex-direction: column;
-    gap: 20px;
 }
 
 .thanks__content {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.thanks__content-back {
+    background-position: center;
+    font-size: 300px;
 }

@@ -14,7 +14,7 @@
         Thank you
       </div>
     </div>
-    <div class="thanks__content">
+    <div class="form__button">
       <button type="submit">HOME</button>
     </div>
 
