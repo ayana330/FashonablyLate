@@ -34,6 +34,7 @@ input, textarea, select {
     padding: 4px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    width: 400px;
 }
 
 input[type="radio"] {
@@ -57,4 +58,11 @@ button {
     border-radius: 3px;
 }
 
+.wname {
+    width: 200px;
+    margin: 5px;
+}
 
+.tel {
+    width: 120px;
+}

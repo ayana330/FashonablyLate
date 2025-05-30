@@ -13,8 +13,8 @@
         <tr>
           <th><span class="form__label--item">お名前</span></th>
           <td>
-            <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="例：山田" >
-            <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="例：太郎" >
+            <input type="text" class="wname" name="last_name" value="{{ old('last_name') }}" placeholder="例：山田" >
+            <input type="text" class="wname" name="first_name" value="{{ old('first_name') }}" placeholder="例：太郎" >
             <div class="form__error">
               @error('last_name')
                 <span>{{ $message }}</span>
@@ -67,9 +67,9 @@
           <th><span class="form__label--item">電話番号</span></th>
           <td>
               <div class="form__input--text tel-input">
-              <input type="text" name="tel1" value="{{ old('tel1') }}" placeholder="080" maxlength="4">ー
-              <input type="text" name="tel2" value="{{ old('tel2') }}" placeholder="1234" maxlength="4">ー
-              <input type="text" name="tel3" value="{{ old('tel3') }}" placeholder="5678" maxlength="4">
+              <input type="text" class="tel" name="tel1" value="{{ old('tel1') }}" placeholder="080" maxlength="4">ー
+              <input type="text" class="tel" name="tel2" value="{{ old('tel2') }}" placeholder="1234" maxlength="4">ー
+              <input type="text" class="tel" name="tel3" value="{{ old('tel3') }}" placeholder="5678" maxlength="4">
               </div>
             <div class="form__error">
               @error('tel1')

@@ -15,9 +15,7 @@
     <table class="confirm-table__inner">
       <tr class="confirm-table__row">
         <th class="confirm-table__header">お名前</th>
-        <td class="confirm-table__text">
-          <input type="text" name="name" value="山田 太郎" />
-        </td>
+        <td class="confirm-table__text">{{$inputs['first_name'].$inputs['last_name']}}</td>
       </tr>
       <tr class="confirm-table__row">
         <th class="confirm-table__header">性別</th>
@@ -63,9 +61,9 @@
     </table>
   </div>
   <div class="form__button">
-    <button class="form__button-submit" type="submit">送信</button>
-    
-    <a href="form.blade.php">修正</a>
+  <button class="form__button-submit" name="send" type="submit">送信</button>
+  <button class="form__button-submit" name="action" value="back" type="submit">修正</button>
+  
   </div>
   </form>
 
