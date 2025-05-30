@@ -53,7 +53,7 @@ class ContactController extends Controller
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'gender' => $data['gender'],
-            'tel' => $tel,
+            'tel' => $data['tel1'],$data['tel2'],$data['tel3'],
             'address' => $data['address'],
             'building' => $data['building'],
             'detail' => $data['inquiry_content'],
