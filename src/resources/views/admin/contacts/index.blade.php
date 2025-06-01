@@ -10,13 +10,15 @@
 <form action="{{ route('contacts.search') }}" method="GET" class="search-form">
     @csrf
     <div class="flex">
+        <input class="serch-form__keyword-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{request('keyword')}}">
+    <!--  
     <div class="search-form__group">
         <input type="text" id="name" name="name" value="{{ request('name') }}" class="search-form__input" placeholder="名前を入力">
     </div>
 
     <div class="search-form__group">
         <input type="email" id="email" name="email" value="{{ request('email') }}" class="search-form__input" placeholder="メールアドレスを入力">
-    </div>
+    </div>-->
 
     <div class="search-form__group">
         <select id="gender" name="gender" class="search-form__input">
