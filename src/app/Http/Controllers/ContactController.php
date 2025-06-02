@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 use App\Http\Requests\ContactRequest;
 
@@ -101,5 +102,13 @@ class ContactController extends Controller
     $contacts = $query->get();
 
     return view('admin.contacts.index', compact('contacts'));
+    }
+
+    public function admin()
+    {
+        $contacts = Contact::with('category')->paginate(7);
+        $categories = Category::all();
+        $csvData = Contact::all();
+        return view('admin', compact('contacts','categories','csvData'));
     }
 }

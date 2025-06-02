@@ -1,10 +1,17 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 
 @section('content')
+<header class="header">
+  <div class="header__inner">
+    <a class="header__logo" href="/">
+      お名前 性別 メールアドレス お問い合わせ内容
+    </a>
+  </div>
+</header>
 <div class="admin__content">
   <form class="admin-form">
     <div class="admin-form__item">
@@ -26,13 +33,13 @@
       <button class="create-form__button-submit" type="submit">詳細</button>
     </div>
   </form>
-  <div class="todo-table">
-    <table class="todo-table__inner">
-      <tr class="todo-table__row">
-        <th class="todo-table__header">Todo</th>
+  <div class="admin-table">
+    <table class="admin-table__inner">
+      <tr class="admin-table__row">
+        <th class="admin-table__header"></th>
       </tr>
-      <tr class="todo-table__row">
-        <td class="todo-table__item">
+      <tr class="admin-table__row">
+        <td class="admin-table__item">
           <form class="update-form">
             <div class="update-form__item">
               <input class="update-form__item-input" type="text" name="content" value="test">
@@ -42,7 +49,7 @@
             </div>
           </form>
         </td>
-        <td class="todo-table__item">
+        <td class="admin-table__item">
           <form class="delete-form">
             <div class="delete-form__button">
               <button class="delete-form__button-submit" type="submit">削除</button>
@@ -50,8 +57,8 @@
           </form>
         </td>
       </tr>
-      <tr class="todo-table__row">
-        <td class="todo-table__item">
+      <tr class="admin-table__row">
+        <td class="admin-table__item">
           <form class="update-form">
             <div class="update-form__item">
               <input class="update-form__item-input" type="text" name="content" value="test2">

@@ -42,6 +42,7 @@
 
     <div class="search-form__group">
         <button type="submit" class="search-form__button">検索</button>
+        
         <button type="submit" class="search-form__button">リセット</button>
     </div>
     </div>

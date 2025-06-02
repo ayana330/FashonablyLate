@@ -6,12 +6,28 @@ h1 {
 div.flex {
     display: flex;
     gap: 24px;
-    min-width: 324px;
-    padding: 8px 12px;
+    line-height: 24px;
+    justify-content: center;
+    margin: 20px;
+    background-color: #ffffff;
 }
 
-.search-form__keyword-input {
-    padding: 8px 12px;
+.input.search-form__keyword-input {
+    padding: 10px 12px;
     min-width: 324px;
-    border: 1px solid #E3DED9;
+}
+
+.search-form__input {
+    padding: 10px 12px;
+    width: 170px;
+    text-align: center;
+}
+
+.search-form__button {
+    padding: 10px 12px;
+}
+
+th {
+    
+    justify-content: center;
 }
