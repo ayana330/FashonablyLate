@@ -13,8 +13,10 @@ div.flex {
 }
 
 .input.search-form__keyword-input {
-    padding: 10px 12px;
+    padding: 8px 12px;
     min-width: 324px;
+    border: 1px solid #E3DED9;
+    background-color: #FBFBFB;
 }
 
 .search-form__input {
@@ -27,7 +29,27 @@ div.flex {
     padding: 10px 12px;
 }
 
+table {
+    margin-top: 16px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
 th {
+    background-color: #5f5549;
+    color: white;
+    text-align: center;
+    padding: 16px 8px;
+    padding-left: 48px;
     
-    justify-content: center;
+}
+
+td {
+    padding: 25px 40px;
+    background-color: #EEEEEE;
+    text-align: center;
+    box-sizing: content-box;
+    border: 1px solid #E0DFDE;
+    padding: 16px 8px;
+    padding-left: 48px;
 }
