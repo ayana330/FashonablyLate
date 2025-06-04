@@ -68,6 +68,8 @@
             <td><button type="submit" class="search-form__button">詳細</button>
         </tr>
         @endforeach
+
+        {[ $contacts->links() ]}
     </table>
 </form>
 @endsection

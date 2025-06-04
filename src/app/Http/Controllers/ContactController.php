@@ -104,12 +104,10 @@ class ContactController extends Controller
     return view('admin.contacts.index', compact('contacts'));
     }
 
-    public function admin()
+    public function index()
     {
-        $contacts = Contact::Paginate(4);
+        $contacts = Contact::paginate(7);
         // $contacts = Contact::with('category')->paginate(7);
-        $categories = Category::all();
-        $csvData = Contact::all();
-        return view('admin', compact('contacts','categories','csvData'));
+        return view('admin.contacts.index', compact('contacts'));
     }
 }
