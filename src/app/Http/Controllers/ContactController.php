@@ -38,12 +38,13 @@ class ContactController extends Controller
     // 送信処理
     public function submit(Request $request)
     {
+        $data = $request->session()->get('contact_inputs');
+
         // 「戻る」が押された場合、入力画面へリダイレクト（入力値も維持）
        if ($request->input('action') === 'back') {
-        return redirect('/')->withInput();
+        return redirect('/')->withInput($data);
         }
         // セッションからデータを取得
-        $data = $request->session()->get('contact_inputs');
         $tel = $data['tel1'] . '-' . $data['tel2'] . '-' . $data['tel3'];
 
         // ここでデータを保存したり、メールを送信する処理を追加
@@ -67,47 +68,47 @@ class ContactController extends Controller
 
     }
 
-    public function search(Request $request)
-    {
-    $query = Contact::query();
+    // public function search(Request $request)
+    // {
+    // $query = Contact::query();
 
-    // 名前での検索
-    if ($request->filled('name')) {
-        $query->where(function ($q) use ($request) {
-        $q->where('first_name', 'like', '%' . $request->name . '%')
-          ->orWhere('last_name', 'like', '%' . $request->name . '%');
-    });
-    }
+    // // 名前での検索
+    // if ($request->filled('name')) {
+    //     $query->where(function ($q) use ($request) {
+    //     $q->where('first_name', 'like', '%' . $request->name . '%')
+    //       ->orWhere('last_name', 'like', '%' . $request->name . '%');
+    // });
+    // }
 
-    // メールアドレスでの検索
-    if ($request->filled('email')) {
-        $query->where('email', 'like', '%' . $request->email . '%');
-    }
+    // // メールアドレスでの検索
+    // if ($request->filled('email')) {
+    //     $query->where('email', 'like', '%' . $request->email . '%');
+    // }
 
-    // 性別での検索
-    if ($request->filled('gender')) {
-        $query->where('gender', $request->gender);
-    }
+    // // 性別での検索
+    // if ($request->filled('gender')) {
+    //     $query->where('gender', $request->gender);
+    // }
 
-    // お問い合わせ種類での検索
-    if ($request->filled('contact_type')) {
-        $query->where('category_id', $request->contact_type);
-    }
+    // // お問い合わせ種類での検索
+    // if ($request->filled('contact_type')) {
+    //     $query->where('category_id', $request->contact_type);
+    // }
 
-    // 日付での検索
-    if ($request->filled('date')) {
-        $query->whereDate('created_at', $request->date);
-    }
+    // // 日付での検索
+    // if ($request->filled('date')) {
+    //     $query->whereDate('created_at', $request->date);
+    // }
 
-    $contacts = $query->get();
+    // $contacts = $query->get();
 
-    return view('admin.contacts.index', compact('contacts'));
-    }
+    // return view('admin.contacts.index', compact('contacts'));
+    // }
 
-    public function index()
-    {
-        $contacts = Contact::paginate(7);
-        // $contacts = Contact::with('category')->paginate(7);
-        return view('admin.contacts.index', compact('contacts'));
-    }
+    // public function index()
+    // {
+    //     $contacts = Contact::paginate(7);
+    //     // $contacts = Contact::with('category')->paginate(7);
+    //     return view('admin.contacts.index', compact('contacts'));
+    // }
 }

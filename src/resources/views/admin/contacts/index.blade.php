@@ -3,12 +3,11 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
 @endsection
-@
+
 @section('content')
   <h1>Admin</h1>
 
-<form action="{{ route('contacts.search') }}" method="GET" class="search-form">
-    @csrf
+<form action="{{ route('admin.contacts.index') }}" method="GET" class="search-form">
     <div class="flex">
         <input class="serch-form__keyword-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{request('keyword')}}">
     <!--  
@@ -50,6 +49,7 @@
     <div class="search-form__group">
         <button type="submit" class="search-form__button">エクスポート</button>   
     </div>
+</form>
 
     <table>
         <tr>
@@ -69,7 +69,7 @@
         </tr>
         @endforeach
 
-        {[ $contacts->links() ]}
     </table>
-</form>
+{{ $contacts->links() }}
+
 @endsection

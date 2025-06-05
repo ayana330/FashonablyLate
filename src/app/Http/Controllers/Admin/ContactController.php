@@ -34,7 +34,7 @@ class ContactController extends Controller
         }
 
         // 検索結果を取得
-        $contacts = $query->get();
+        $contacts = $query->paginate(7);
 
         return view('admin.contacts.index', compact('contacts'));
     }

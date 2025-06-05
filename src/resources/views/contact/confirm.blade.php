@@ -19,7 +19,12 @@
       </tr>
       <tr class="confirm-table__row">
         <th class="confirm-table__header">性別</th>
-        <td class="confirm-table__text">{{$inputs['gender']}}</td>
+        <td class="confirm-table__text">
+         @if($inputs['gender']==1) 男性
+         @elseif($inputs['gender']==2) 女性
+         @else その他
+         @endif
+        </td>
       </tr>
       <tr class="confirm-table__row">
         <th class="confirm-table__header">メールアドレス</th>
@@ -44,12 +49,12 @@
       <tr class="confirm-table__row">
         <th class="confirm-table__header">お問い合わせの種類</th>
         <td class="confirm-table__text">
-        {{$inputs['inquiry_content']}}</td>
+        {{$inputs['inquiry_type']}}</td>
       </tr>
       <tr class="confirm-table__row">
         <th class="confirm-table__header">お問い合わせ内容</th>
         <td class="confirm-table__text">
-        {{$inputs['inquiry_type']}}</td>
+        {{$inputs['inquiry_content']}}</td>
       </tr>
     </table>
   </div>

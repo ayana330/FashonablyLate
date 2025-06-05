@@ -67,9 +67,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 });
 Route::get('/admin/contacts/search', [ContactController::class, 'search'])->name('contacts.search');
 
-Route::get('/search', function () {
-    return view('search');
-})->name('search');
+// Route::get('/search', function () {
+//     return view('search');
+// })->name('search');
 
 Route::get('/session', [SessionController::class, 'getSes']);
 Route::post('/session', [SessionController::class, 'postSes']);
